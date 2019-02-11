@@ -1,3 +1,4 @@
+/* map needs a height for it to show on the page */
 #map { 
     height: 400px; 
     width: 100%;
