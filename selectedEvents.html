@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Trips-Trippin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+    <script src="assets/javascript/main.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
-    <script src="assets/javascript/main.js"></script>
+
 
 </head>
 
@@ -27,10 +27,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Events <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Events <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Trips</a>
+                    <a class="nav-link" href="selectedEvents.html">Trips</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -45,50 +45,51 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4" id="selected-events">
-                    <h2>Selected Events</h2>
-                    <div id="events-chosen-divs">
-                        <p>You have no selected events. </p>
-                    </div>
+                <h2>Selected Events</h2>
+                <div id="events-chosen-divs">
+                    <p>You have no selected events. </p>
                 </div>
-                <div class="col-md-1">
+            </div>
+            <div class="col-md-1">
 
-                </div>
+            </div>
             <div class="col-md-7" id="map-directions">
                 <h2>Map and Directions</h2>
                 <form>
-                        <div class="form-row">
-                          <div class="col">
+                    <div class="form-row">
+                        <div class="col">
                             <input type="text" class="form-control" placeholder="Starting Point">
-                          </div>
-                          <div class="col">
-                                <button class="btn btn-info my-2 my-sm-0" type="submit">Add</button>
-                          </div>
                         </div>
-                      </form>
-                    <div class="row">
-                        <img src="https://www.mapsofworld.com/usa/usa-maps/united-states-map.jpg" class="img-fluid" alt="placeholer image">
-                     
+                        <div class="col">
+                            <button class="btn btn-info my-2 my-sm-0" type="submit">Add</button>
+                        </div>
                     </div>
-                      <div>
+                </form>
+                <div class="row">
+                    <img src="https://www.mapsofworld.com/usa/usa-maps/united-states-map.jpg" class="img-fluid"
+                        alt="placeholer image">
+
+                </div>
+                <div>
 
 
                 </div>
             </div>
-                
+
         </div>
     </div>
 
 
     <!-- Script Tags -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+        <script src="assets/javascript/main.js"></script>
 </body>
 
 </html>

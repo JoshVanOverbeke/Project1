@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
-    <script src="assets/javascript/main.js"></script>
+
 </head>
 
 <body>
@@ -58,7 +58,25 @@
                 <h2>Search Results</h2>
                 <div id="event-result-divs">
                     <p>Please enter search criteria to find events. </p>
-                    
+                    <div class="card">
+                            <h5 class="card-header">Event Title Here</h5>
+                            <div class="card-body">
+                              <p class="card-text">Date: 1/1/20</p>
+                              <p class="card-text">Location: St. Paul, MN</p>
+                              <p class="card-text">Description: Brief Description can go right here!</p>
+                              <div class="row">
+                                <div class="col">
+                                    <div class="collapse multi-collapse" id="collapse-example-card">
+                                        <p class="card-text">
+                                            Here we can add in more p tags for the event url, price, etc. 
+                                        </p>
+                                    </div>
+                                </div>
+                              </div>
+                              <a href="#collapse-example-card" data-toggle="collapse" role="button" aria-expanded= "false" aria-controls="collapse-example-card"  class="btn btn-primary">More Details</a>
+                              <a href="#" class="btn btn-primary">Add to Trip</a>
+                            </div>
+                          </div>
                 </div>
             </div>
             <div class="col-md-4" id="selected-events">
@@ -80,6 +98,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+        <script src="assets/javascript/main.js"></script>
 </body>
 
 </html>
