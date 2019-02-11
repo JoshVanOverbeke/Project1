@@ -16,6 +16,8 @@
 </head>
 
 <body>
+
+    <!-- NavBar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Trippin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -26,10 +28,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Events <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Events <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Trips</a>
+                    <a class="nav-link" href="selectedEvents.html">Trips</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 mx-auto">
@@ -39,13 +41,15 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <div class="search-group-prepend">
                     <span class="input-group-text" id="locationPrepend">Location:</span>
-                </div>    
+                </div>
                 <input class="form-control mr-sm-2" type="search" placeholder="Minneapolis" aria-label="Search">
                 <input type="text" name="dates" class="form-control pull-right">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
+
+    <!-- Main Content -->
     <div class="container">
         <div class="row">
             <p></p>
@@ -57,8 +61,9 @@
             <div class="col-md-5" id="search-results-here">
                 <h2>Search Results</h2>
                 <div id="event-result-divs">
-                        <p>Please enter search criteria to find events.  </p>
-                    </div>
+                    <p>Please enter search criteria to find events. </p>
+                    
+                </div>
             </div>
             <div class="col-md-4" id="selected-events">
                 <h2>Selected Events</h2>
@@ -73,6 +78,9 @@
         </div>
     </div>
 
+<!-- Script Tags -->
+
+
     <!-- leaflet and mapquest libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=AoNG9Pck2OwAqC8UimPg7rPUG2dmvPgH"></script>
@@ -83,6 +91,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
