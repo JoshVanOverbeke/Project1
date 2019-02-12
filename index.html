@@ -38,10 +38,40 @@
     </nav>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <form class="form-inline justify-content-center">
-                <div class="search-group-prepend">
-                    <span class="input-group-text" id="searchPrepend">Events:</span>
+            <form>
+                <div class="form-row justify-content-center">
+                    <div class="col-sm-3 my-1">
+                        <label class="sr-only" for="inlineFormInputGroupUsername">Event</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Events:</div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
+                        </div>
+                        </div>
+                        <div class="col-sm-3 my-1">
+                            <label class="sr-only" for="inlineFormInputGroupUsername">Location</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Location:</div>
+                                </div>
+                                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Minneapolis">
+                            </div>
+                        </div>
+                        <div class="col-sm-3 my-1">
+                            <label class="sr-only" for="inlineFormInputGroupUsername">Date</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Dates:</div>
+                                </div>
+                                <input type="text" class="form-control" name="dates" class="form-control pull-right">
+                            </div>
+                        </div>
+                    <div class="col-auto my-1">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
+<<<<<<< HEAD
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <div class="search-group-prepend">
                     <span class="input-group-text" id="locationPrepend">Location:</span>
@@ -49,6 +79,8 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Minneapolis" aria-label="Search">
                 <input class="form-control mr-sm-2" id="date-range" type="text" name="dates" class="form-control pull-right">
                 <button class="btn btn-outline-success my-2 my-sm-0" id="search-button" type="submit">Search</button>
+=======
+>>>>>>> bcf0cdf24a533403b714edd5993db5a4e48e0843
             </form>
         </div>
       </div>
