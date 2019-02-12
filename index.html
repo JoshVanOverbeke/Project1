@@ -11,7 +11,7 @@
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
     <!-- calendar dropdown style -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" /> -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
 </head>
 
@@ -40,15 +40,47 @@
     <!-- Main Content-- added state dropdown and removed search criteria -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <form class="form-inline justify-content-center">
-                <div class="search-group-prepend">
-                    <span class="input-group-text" id="searchPrepend">Events:</span>
+            <form>
+                <div class="form-row justify-content-center">
+                    <div class="col-sm-3 my-1">
+                        <label class="sr-only" for="inlineFormInputGroupUsername">Event</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">Events:</div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
+                        </div>
+                        </div>
+                        <div class="col-sm-3 my-1">
+                            <label class="sr-only" for="inlineFormInputGroupUsername">Location</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Location:</div>
+                                </div>
+                                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Minneapolis">
+                            </div>
+                        </div>
+                        <div class="col-sm-3 my-1">
+                            <label class="sr-only" for="inlineFormInputGroupUsername">Date</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Dates:</div>
+                                </div>
+                                <input type="text" class="form-control" name="dates" class="form-control pull-right">
+                            </div>
+                        </div>
+                    <div class="col-auto my-1">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
+
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="what-input">
+
                 <div class="search-group-prepend">
                     <span class="input-group-text" id="locationPrepend">Location:</span>
                 </div>
                 <input class="form-control mr-sm-2" type="search" placeholder="Minneapolis" aria-label="Search">
+
                 <select class="form-control" id="state-input">
                     <option>Alabama</option>
                     <option>Alaska</option>
@@ -161,7 +193,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="assets/javascript/main.js"></script>
-    <script src="assets/tests/test.js"></script>
+    <!-- <script src="assets/tests/test.js"></script> -->
 </body>
 
 </html>
