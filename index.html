@@ -41,12 +41,12 @@
             <form>
                 <div class="form-row justify-content-center">
                     <div class="col-sm-3 my-1">
-                        <label class="sr-only" for="inlineFormInputGroupUsername">Event</label>
+                        <label class="sr-only" for="what-input">Event</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Events:</div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
+                            <input type="text" class="form-control" id="what-input" placeholder="Search">
                         </div>
                         </div>
                         <div class="col-sm-5 my-1">
@@ -55,7 +55,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">Location:</div>
                                 </div>
-                                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Minneapolis">
+                                <input type="text" class="form-control" id="where-input" placeholder="Minneapolis">
                                 <select class="form-control" id="state-input">
                                     <option>Alabama</option>
                                     <option>Alaska</option>
@@ -118,11 +118,11 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">Dates:</div>
                                 </div>
-                                <input type="text" class="form-control" name="dates" class="form-control pull-right">
+                                <input type="text" class="form-control" name="dates" class="form-control pull-right" id="when-input">
                             </div>
                         </div>
                     <div class="col-auto my-1">
-                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-event">Search</button>
                     </div>
 
                 
@@ -138,17 +138,17 @@
             <p></p>
         </div>
         <div class="row">
-            <div class="col-md-3" id="search-criteria">
+            <!-- <div class="col-md-3" id="search-criteria">
                 <h2>Search Criteria</h2>
-            </div>
-            <div class="col-md-5" id="search-results-here">
+            </div> -->
+            <div class="col-md-7" id="search-results-here">
                 <h2>Search Results</h2>
                 <div id="event-result-divs">
                     <p>Please enter search criteria to find events. </p>
                     
                 </div>
             </div>
-            <div class="col-md-4" id="selected-events">
+            <div class="col-md-5" id="selected-events">
                 <h2>Selected Events</h2>
                 <div id="events-chosen-divs">
                     <p>You have no selected events. </p>
@@ -184,6 +184,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="assets/javascript/main.js"></script>
     <!-- <script src="assets/tests/test.js"></script> -->
+    <script src="assets/tests/test2.js"></script
+    
 </body>
 
 </html>
