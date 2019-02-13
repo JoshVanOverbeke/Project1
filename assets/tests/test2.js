@@ -3,9 +3,6 @@ $(document).ready(function () {
     console.log(chosenDisplay);
     let chosenEventsArray=[];
 
-
-    
-
     if(chosenDisplay === undefined){
         console.log('undefined chosenDisplay')
     }
