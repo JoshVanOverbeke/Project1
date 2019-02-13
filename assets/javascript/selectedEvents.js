@@ -13,7 +13,7 @@ $(document).ready(function () {
     })
     console.log(chosenDisplay)
     // ================================================================================================================
-    // mapquest & leaflet logic for generating a map
+    // mapquest & leaflet logic for generating a map.
     // ================================================================================================================
 
     function fillLocations() {
