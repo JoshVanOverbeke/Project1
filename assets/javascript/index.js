@@ -1,15 +1,12 @@
-let chosenEventsArray=[];
-
 $(document).ready(function () {
-
     
+    let chosenEventsArray=[];
+    $('input[name="dates"]').daterangepicker()
 
 
 
+  $("#search-event").on("click", function (event) {
 
-    $("#search-event").on("click", function (event) {
-
-        $("#event-result-divs").empty();
         let resultsArray=[];
         var what = "";
         var where = "";
@@ -20,24 +17,44 @@ $(document).ready(function () {
         var eventTime = "";
         var eventAddress = "";
 
-        $("#event-result-divs").empty();
+
         event.preventDefault();
-        what = $("#what-input").val().trim();
-        where = $("#where-input").val().trim();
-        when = $("#when-input").val();
-        category = $("#category-input").val();
+        $("#event-result-divs").empty();
+    
+        console.log($("#when-input").val().trim());
+        //grab the dates from the form and split them apart so moment can convert them individually
+        let dateSplit = $("#when-input").val().trim().split('-')
+        console.log(dateSplit);
+        //allow moment to understand the date format and convert each date into our search date format
+        let dateRange1 = moment(dateSplit[0], 'MM/DD/YYYY').format('YYYYMMDD00');
+        let dateRange2 = moment(dateSplit[1], 'MM/DD/YYYY').format('YYYYMMDD00');
+        console.log(dateRange1)
+  
+        //invalid date
+        if (moment(moment(dateSplit[0], 'MM/DD/YYYY')).isBefore(moment(), 'day') === true){
+            console.log('this date is before the current date')
+    
+        }
+        //valid date
+        else{
+            when = dateRange1+'-'+dateRange2;
+            console.log('This is a valid date')
+            console.log(when)
 
-        // var queryURL = "http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=movies&keywords";
-        var queryURL = "http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=" + what + "&l=" + where + "&within=25&units=miles&sort_order=popularity";
-        // http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=music&keywords
-        
-        console.log("hopefully empty array", resultsArray);
+            what = $("#what-input").val().trim();
+            where = $("#where-input").val().trim();
+            where = $("#state-input").val().trim();
+            category = $("#category-input").val();
 
-        $.ajax({
-            url: queryURL,
-            dataType: "json",
-            method: "GET"
-        }).then(function (response) {
+            // var queryURL = "http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=movies&keywords";
+            var queryURL = "http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=" + what + "&l=" + where + "&within=25&units=miles&sort_order=popularity&t=" + when;
+            // http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=music&keywords 
+            console.log("hopefully empty array", resultsArray);
+      $.ajax({
+          url: queryURL,
+          dataType: "json",
+          method: "GET"
+      }).then(function (response) {
             // console.log(response.events.event.title)
             response.events.event.forEach((event, i) => {
                 
@@ -99,6 +116,9 @@ $(document).ready(function () {
 
 
 
+              $("#add-event-button-" + i).on("click", function (event) {
+                
+
                 $("#add-event-button-" + i).on("click", function (event) {
 
                     // var title = 
@@ -118,15 +138,16 @@ $(document).ready(function () {
 
 
 
-                // }
-
-
 
             });
 
             console.log("array with numbers", resultsArray);
 
-        });
-    });
-});
 
+
+          });
+
+      });
+    };
+  });
+});
