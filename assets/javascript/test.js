@@ -13,11 +13,7 @@ $(document).ready(function () {
       var what = "";
       var where = "";
       var when = "";
-      var category = "";
-      var eventTitle = "";
-      var eventCity = "";
-      var eventTime = "";
-      var eventAddress = "";
+    
 
     
       console.log($("#when-input").val().trim());
@@ -86,7 +82,7 @@ $(document).ready(function () {
                   + "<div class='col'>"
                   + "<div class='collapse multi-collapse' id='collapse-card-" + i + "'>"
 
-                  //Here we can add in more p tags for the event url, price, etc
+                  //Here we can add in more p tags for the event url, price, etc.
                   + "<p class='card-text'>Description: " + eventDescription + "</p>"
                   + "<p class='card-text'>Event Web Page: <a href='" + event.url + "'>" + event.url + "</a></p>"
                   + "</div>"
