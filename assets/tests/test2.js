@@ -16,7 +16,7 @@ $(document).ready(function () {
         var eventTime = "";
         var eventAddress = "";
 
-
+        $("#event-result-divs").empty();
         event.preventDefault();
         what = $("#what-input").val().trim();
         where = $("#where-input").val().trim();
