@@ -8,10 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
     <!-- calendar dropdown style -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" /> -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
 </head>
 
@@ -41,21 +40,75 @@
             <form>
                 <div class="form-row justify-content-center">
                     <div class="col-sm-3 my-1">
-                        <label class="sr-only" for="inlineFormInputGroupUsername">Event</label>
+                        <label class="sr-only" for="what-input">Event</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Events:</div>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
+                            <input type="text" class="form-control" id="what-input" placeholder="Search">
                         </div>
                         </div>
-                        <div class="col-sm-3 my-1">
+                        <div class="col-sm-5 my-1">
                             <label class="sr-only" for="inlineFormInputGroupUsername">Location</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">Location:</div>
                                 </div>
-                                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Minneapolis">
+                                <input type="text" class="form-control" id="where-input" placeholder="Minneapolis">
+                                <select class="form-control" id="state-input">
+                                    <option>Alabama</option>
+                                    <option>Alaska</option>
+                                    <option>Arizona</option>
+                                    <option>Arkansas</option>
+                                    <option>California</option>
+                                    <option>Colorado</option>
+                                    <option>Connecticut</option>
+                                    <option>Delaware</option>
+                                    <option>Alabama</option>
+                                    <option>Florida</option>
+                                    <option>Georgia</option>
+                                    <option>Hawaii</option>
+                                    <option>Alabama</option>
+                                    <option>Idaho</option>
+                                    <option>Illinois</option>
+                                    <option>Indiana</option>
+                                    <option>Iowa</option>
+                                    <option>Kansas</option>
+                                    <option>Kentucky</option>
+                                    <option>Louisiana</option>
+                                    <option>Maine</option>
+                                    <option>Maryland</option>
+                                    <option>Massachusetts</option>
+                                    <option>Michigan</option>
+                                    <option>Minnesota</option>
+                                    <option>Mississippi</option>
+                                    <option>Missouri</option>
+                                    <option>Montana</option>
+                                    <option>Nebraska</option>
+                                    <option>Nevada</option>
+                                    <option>New Hampshire</option>
+                                    <option>New Jersey</option>
+                                    <option>New Mexico</option>
+                                    <option>New York</option>
+                                    <option>North Carolina</option>
+                                    <option>North Dakota</option>
+                                    <option>Ohio</option>
+                                    <option>Oklahoma</option>
+                                    <option>Oregon</option>
+                                    <option>Pennsylvania</option>
+                                    <option>Rhode Island</option>
+                                    <option>South Carolina</option>
+                                    <option>South Dakota</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option>Utah</option>
+                                    <option>Vermont</option>
+                                    <option>Virginia</option>
+                                    <option>Washington</option>
+                                    <option>West Virginia</option>
+                                    <option>Wisconsin</option>
+                                    <option>Wyoming</option>
+                                  </select>
                             </div>
                         </div>
                         <div class="col-sm-3 my-1">
@@ -64,13 +117,18 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">Dates:</div>
                                 </div>
-                                <input type="text" class="form-control" name="dates" class="form-control pull-right">
+                                <input type="text" class="form-control" name="dates" class="form-control pull-right" id="when-input">
                             </div>
                         </div>
                     <div class="col-auto my-1">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-event">Search</button>
                     </div>
+
+                
+
                 </div>
+               
+
             </form>
         </div>
       </div>
@@ -79,17 +137,17 @@
             <p></p>
         </div>
         <div class="row">
-            <div class="col-md-3" id="search-criteria">
+            <!-- <div class="col-md-3" id="search-criteria">
                 <h2>Search Criteria</h2>
-            </div>
-            <div class="col-md-5" id="search-results-here">
+            </div> -->
+            <div class="col-md-7" id="search-results-here">
                 <h2>Search Results</h2>
                 <div id="event-result-divs">
                     <p>Please enter search criteria to find events. </p>
                     
                 </div>
             </div>
-            <div class="col-md-4" id="selected-events">
+            <div class="col-md-5" id="selected-events">
                 <h2>Selected Events</h2>
                 <div id="events-chosen-divs">
                     <p>You have no selected events. </p>
@@ -102,16 +160,6 @@
     </div>
 
 <!-- Script Tags -->
-
-
-    <!-- leaflet and mapquest libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=AoNG9Pck2OwAqC8UimPg7rPUG2dmvPgH"></script>
-    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=AoNG9Pck2OwAqC8UimPg7rPUG2dmvPgH"></script>
-        
-
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
@@ -124,7 +172,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="assets/javascript/main.js"></script>
-    <script src="assets/tests/test.js"></script>
 </body>
 
 </html>
