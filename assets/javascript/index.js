@@ -77,8 +77,7 @@ $(document).ready(function () {
             console.log(when)
 
             what = $("#what-input").val().trim();
-            where = $("#where-input").val().trim();
-            where = where + $("#state-input").val().trim();
+            where = $("#where-input").val().trim() + ", " + $("#state-input").val().trim();
             category = $("#category-input").val();
 
  
