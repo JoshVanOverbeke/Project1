@@ -101,11 +101,11 @@ $(document).ready(function () {
 
                 $("#add-event-button-" + i).on("click", function (event) {
 
-                    var title = 
-                    console.log($("#what-results").text(event.title));
-                    var startTime = $("#when-results").text(moment(event[i].start_time).format("MMM Do, YYYY hh:mm a"));
-                    var location = $("#where-results").text(event[i].venue_address + ", " + event[i].city_name + ", " + event[i].region_name);
-                    var description = $("#description-results").text(event[i].description);
+                    // var title = 
+                    // console.log((i).val(event.title));
+                    // var startTime = $("#when-results").text(moment(event[i].start_time).format("MMM Do, YYYY hh:mm a"));
+                    // var location = $("#where-results").text(event[i].venue_address + ", " + event[i].city_name + ", " + event[i].region_name);
+                    // var description = $("#description-results").text(event[i].description);
 
                     event.preventDefault()
                     $("#card-" + i).hide();
