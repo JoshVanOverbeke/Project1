@@ -58,7 +58,7 @@ $(document).ready(function () {
       }).then(function (response) {
           // console.log(response.events.event.title)
           response.events.event.forEach((event, i) => {
-              // console.log(i, event);
+              // console.log(i, event)
               // console.log(event.title);
               // console.log(event.start_time);
               // console.log(event.venue_address);
