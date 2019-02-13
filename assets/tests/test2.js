@@ -63,12 +63,12 @@ $(document).ready(function () {
 
                     //Here we can add in more p tags for the event url, price, etc. 
                     + "<p class='card-text'>Description: " + eventDescription + "</p>"
-                    + "<p class='card-text'>Event Web Page: <a href='" + event.url + "'>" + event.url + "</a></p>"
+                    + "<p class='card-text'><a href='" + event.url + "'>" + "Event Web Page" + "</a></p>"
                     + "</div>"
                     + "</div>"
                     + "</div>"
-                    + "<a href='#collapse-card-" + i + "' data-toggle='collapse' role='button' aria-expanded= 'false' aria-controls='collapse-example-card'  class='btn btn-primary'>More Details</a>"
-                    + "<button class='btn btn-primary' id='add-event-button-" + i + "'>Add to Trip</button>"
+                    + "<a href='#collapse-card-" + i + "' data-toggle='collapse' role='button' aria-expanded= 'false' aria-controls='collapse-example-card'  class='btn btn-primary my-4'>More Details</a>"
+                    + "<button class='btn btn-primary mx-2 my-4' id='add-event-button-" + i + "'>Add to Trip</button>"
                     + "</div>"
                     + "</div>");
 
