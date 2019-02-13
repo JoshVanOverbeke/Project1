@@ -3,7 +3,6 @@ $(document).ready(function () {
 
 
 
-
   $("#search-event").on("click", function (event) {
 
     event.preventDefault();
@@ -13,7 +12,11 @@ $(document).ready(function () {
       var what = "";
       var where = "";
       var when = "";
-    
+      var category = "";
+      var eventTitle = "";
+      var eventCity = "";
+      var eventTime = "";
+      var eventAddress = "";
 
     
       console.log($("#when-input").val().trim());
@@ -27,7 +30,9 @@ $(document).ready(function () {
   
       //invalid date
       if (moment(moment(dateSplit[0], 'MM/DD/YYYY')).isBefore(moment(), 'day') === true){
-          console.log('this date is before the current date')
+        console.log('this date is before the current date')
+        $("#error").append("<p class = 'error'>*Please select a current or future date*</p>")
+        event()
   
       }
       //valid date

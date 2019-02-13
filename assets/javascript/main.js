@@ -18,7 +18,7 @@ $("#search-button").on("click", function(event) {
 
     //invalid date
     if (moment(moment(dateSplit[0], 'MM/DD/YYYY')).isBefore(moment(), 'day') === true){
-        console.log('this date is before the current date')
+        MsgBox('this date is before the current date')
 
     }
     //valid date
