@@ -1,6 +1,6 @@
 
 //Our starting location that is input in the form, us jquery to pull information
-var startLocation;
+var startingPoint;
 //push seleceted events into array and sort them
 eventArray = [];
 
@@ -12,19 +12,32 @@ eventArray = [];
 // ================================================================================================================
 // mapquest & leaflet logic for generating a map
 // ================================================================================================================
+
 function fillLocations(){
   for(let i in eventArray){
     eventArray[i]+", ";
   }
 }
 
+$("#calculate-button").on("click", function(event){
+  event.preventDefault();
+
+  startingPoint = $("#starting-point").val().trim()
+  console.log(startingPoint)
+
+
+
+//clears current map
+$("#map").empty();
+
+//initialize variables for mapquest/leaflet
 var map,
   dir;
 
 
 map = L.map('map', {
   layers: MQ.mapLayer(),
-  center: startLocation,
+  center:[ 39.995149, -102.045473],
   zoom: 9
 });
 
@@ -32,8 +45,9 @@ dir = MQ.routing.directions();
 
 dir.route({
   locations: [
-    startLocation,
-    fillLocation()
+    startingPoint,
+    'marshall mn'
+    // fillLocations()
   
   ]
 });
@@ -42,4 +56,6 @@ map.addLayer(MQ.routing.routeLayer({
   directions: dir,
   fitBounds: true
 }));
+$("#starting-point").val("")
+});
 // =================================================================================================================
