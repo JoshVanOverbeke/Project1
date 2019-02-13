@@ -1,9 +1,7 @@
-$('input[name="dates"]').daterangepicker()
-
 $(document).ready(function () {
     
     let chosenEventsArray=[];
-
+    $('input[name="dates"]').daterangepicker()
 
 
 
