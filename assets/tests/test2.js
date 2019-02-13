@@ -1,5 +1,8 @@
+let chosenEventsArray=[];
+
 $(document).ready(function () {
 
+    
 
 
 
@@ -14,7 +17,8 @@ $(document).ready(function () {
     // firebase.initializeApp(config);
     $("#search-event").on("click", function (event) {
 
-
+        $("#event-result-divs").empty();
+        let resultsArray=[];
         var what = "";
         var where = "";
         var when = "";
@@ -28,6 +32,9 @@ $(document).ready(function () {
         // var queryURL = "http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=movies&keywords";
         var queryURL = "http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=" + what + "&l=" + where + "&within=25&units=miles&sort_order=popularity";
         // http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=music&keywords
+        
+        console.log("hopefully empty array", resultsArray);
+
         $.ajax({
             url: queryURL,
             dataType: "json",
@@ -35,39 +42,19 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response.events.event.title)
             response.events.event.forEach((event, i) => {
-                console.log(i, event);
-                console.log(event.title);
-                console.log(event.start_time);
-                console.log(event.venue_address);
-                console.log(event.city_name);
-                console.log(event.title);
-                console.log(moment(event.start_time).format("MMM Do, YYYY hh:mm a"))
+                
+                resultsArray.push(event);
+                
+                // console.log(i, event);
+                // console.log(event.title);
+                // console.log(event.start_time);
+                // console.log(event.venue_address);
+                // console.log(event.city_name);
+                // console.log(event.title);
+                // console.log(moment(event.start_time).format("MMM Do, YYYY hh:mm a"))
                 // for (let i = 0; i < response.events.event.length; i++) {
 
-                /*
-                <div class="card" id = "cardDiv">
-                              <div class="card-header" id = "what-results"></div>
-                              <div class="card-body">
-                                  <p class="card-text" id ="when-results"></p>
-                                  <p class="card-text" id = "where-results"></p>
-                                  <p class="card-text"></p>
-                                  <div class="row">
-                                      <div class="col">
-                                          <div class="collapse multi-collapse" id="collapse-example-card">
-                                              <p class="card-text" >
-                                                  <div id = "description-results"></div>
-                                                 
-                                              </p>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <a href="#collapse-example-card" data-toggle="collapse" role="button" aria-expanded="false"
-                                      aria-controls="collapse-example-card" class="btn btn-primary">More Details</a>
-                                  <a href="#" class="btn btn-primary">Add to Trip</a>
-                              </div>
-                          </div>
-                          */
-                //  console.log(i);
+
                 let eventDescription="";
                 if(event.description){
                     eventDescription=event.description;
@@ -98,6 +85,12 @@ $(document).ready(function () {
                     $("#add-event-button-"+i).on("click",function(){
                         $("#card-"+i).hide();
                         $("#selected-events").append("<div><p>Testing!</p></div>");
+                        chosenEventsArray.push(resultsArray[i]);
+                        console.log(chosenEventsArray);
+                    
+                        $("#events-chosen-divs").append(
+                            
+                        );
                     })
                 //   $("#what-results").text(event[i].title);
                 //   $("#when-results").text(moment(event[i].start_time).format("MMM Do, YYYY hh:mm a"));
@@ -109,7 +102,11 @@ $(document).ready(function () {
 
                 // }
 
+
+
             });
+
+            console.log("array with numbers", resultsArray);
 
         });
     });
