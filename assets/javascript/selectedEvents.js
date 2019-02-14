@@ -62,7 +62,7 @@ $(document).ready(function () {
     
                 for (i=0; i < maneuvers.length; i++) {
                     html += (i+1) + '. ';
-                    html += maneuvers[i].narrative + '';
+                    html += maneuvers[i].narrative + '<div></div>';
                 }
     
                 L.DomUtil.get('route-narrative').innerHTML = html;

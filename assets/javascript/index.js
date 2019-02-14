@@ -38,18 +38,15 @@ $(document).ready(function () {
             +"</div>");
         };
     };
-
-    //clear all events button works when on the page but if you leave page and come back, it will not clear until page refresh
-    $("body").on("click", "#clear-events", function(){
+    $("#clear-events").on("click", function(){
 
         console.log("clear!!!")
         localStorage.clear();
         $(".chosen-card").empty();
     });
 
-
     $("#search-event").on("click", function (event) {
-        event.preventDefault();
+
         let resultsArray=[];
         var what = "";
         var where = "";
@@ -61,7 +58,7 @@ $(document).ready(function () {
         var eventAddress = "";
 
         $("#event-result-divs").empty();
-       
+        event.preventDefault();
         
     
         console.log($("#when-input").val().trim());
@@ -85,8 +82,7 @@ $(document).ready(function () {
             console.log(when)
 
             what = $("#what-input").val().trim();
-            where = $("#where-input").val().trim()+', '+ $("#state-input").val().trim();;
-            
+            where = $("#where-input").val().trim() + ", " + $("#state-input").val().trim();
             category = $("#category-input").val();
 
  
@@ -135,6 +131,8 @@ $(document).ready(function () {
                 let SelectedEventDescription="";
                 if(resultsArray[i].description){
                     SelectedEventDescription=resultsArray[i].description;
+                    $("#error").append("<p class = 'error'>*Please select a current or future date*");
+                    event();
                 }
                 else
                     SelectedEventDescription = "not available. Please see event URL for further details.";
