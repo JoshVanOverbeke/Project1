@@ -47,10 +47,22 @@ $(document).ready(function () {
         };
     };
 
+    //clear all events button works when on the page but if you leave page and come back, it will not clear until page refresh
+    $("body").on("click", "#clear-events", function(){
 
+        console.log("clear!!!")
+        localStorage.clear();
+        $(".chosen-card").empty();
+    });
+
+<<<<<<< HEAD
     $("#search-event").on("click", function (event) {
 >>>>>>> 8f56bc6dd6b88c73cc3e36caddc1b558f8f26d96
+=======
+>>>>>>> ce4f0914802f026eac7fbd70ad82869cadf1fdb3
 
+    $("#search-event").on("click", function (event) {
+        event.preventDefault();
         let resultsArray=[];
         var what = "";
         var where = "";
@@ -67,7 +79,7 @@ $(document).ready(function () {
         $("#event-result-divs").empty();
 =======
         $("#event-result-divs").empty();
-        event.preventDefault();
+       
         
 >>>>>>> 8f56bc6dd6b88c73cc3e36caddc1b558f8f26d96
     
@@ -93,6 +105,7 @@ $(document).ready(function () {
 
             what = $("#what-input").val().trim();
 <<<<<<< HEAD
+<<<<<<< HEAD
             where = $("#where-input").val().trim();
             where = $("#state-input").val().trim();
             category = $("#category-input").val();
@@ -102,6 +115,10 @@ $(document).ready(function () {
             // http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=music&keywords 
 =======
             where = $("#where-input").val().trim() + ", " + $("#state-input").val().trim();
+=======
+            where = $("#where-input").val().trim()+', '+ $("#state-input").val().trim();;
+            
+>>>>>>> ce4f0914802f026eac7fbd70ad82869cadf1fdb3
             category = $("#category-input").val();
 
  
@@ -257,7 +274,7 @@ $(document).ready(function () {
                     console.log(chosenEventsArray);
                     console.log(JSON.parse(localStorage.getItem(chosenEventsArray)));
 
-                    $("#events-chosen-divs").append("<div class='card'>"
+                    $("#events-chosen-divs").append("<div class='card chosen-card'>"
                     +"<div class='card-header'>"
                     +"<h5>"+resultsArray[i].title+"</h5></div>"
                     +"<div class='card-body'>"
