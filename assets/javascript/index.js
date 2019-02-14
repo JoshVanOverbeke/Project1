@@ -39,6 +39,11 @@ $(document).ready(function () {
         };
     };
 
+    $("#clear-events").on("click",function(){
+        localStorage.clear();
+        $("event-result-divs").hide();
+    });
+
 
     $("#search-event").on("click", function (event) {
 
@@ -77,7 +82,8 @@ $(document).ready(function () {
             console.log(when)
 
             what = $("#what-input").val().trim();
-            where = $("#where-input").val().trim() + ", " + $("#state-input").val().trim();
+            where = $("#where-input").val().trim()+', '+ $("#state-input").val().trim();;
+            
             category = $("#category-input").val();
 
  
