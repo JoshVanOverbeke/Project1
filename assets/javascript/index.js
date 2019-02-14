@@ -6,6 +6,7 @@ $(document).ready(function () {
     $('input[name="dates"]').daterangepicker()
 
     if(chosenDisplay === null){
+
         console.log('undefined chosenDisplay')
     }
     else{
@@ -73,10 +74,13 @@ $(document).ready(function () {
         //invalid date
         if (moment(moment(dateSplit[0], 'MM/DD/YYYY')).isBefore(moment(), 'day') === true){
             console.log('this date is before the current date')
+            $("#error").append("<p class = 'error'>*Please select a current or future date*");
+            event();
     
         }
         //valid date
         else{
+            $("#error").empty();
             when = dateRange1+'-'+dateRange2;
             console.log('This is a valid date')
             console.log(when)
@@ -131,8 +135,7 @@ $(document).ready(function () {
                 let SelectedEventDescription="";
                 if(resultsArray[i].description){
                     SelectedEventDescription=resultsArray[i].description;
-                    $("#error").append("<p class = 'error'>*Please select a current or future date*");
-                    event();
+
                 }
                 else
                     SelectedEventDescription = "not available. Please see event URL for further details.";

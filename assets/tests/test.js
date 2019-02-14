@@ -13,14 +13,10 @@ eventArray = [];
 // mapquest & leaflet logic for generating a map
 // ================================================================================================================
 
-function fillLocations(){
-  for(let i in eventArray){
-    eventArray[i]+", ";
-  }
-}
 
 $("#calculate-button").on("click", function(event){
   event.preventDefault();
+  
 
   startingPoint = $("#starting-point").val().trim()
   console.log(startingPoint)
@@ -29,6 +25,7 @@ $("#calculate-button").on("click", function(event){
 
 //clears current map
 $("#map").empty();
+
 
 //initialize variables for mapquest/leaflet
 var map,
@@ -40,7 +37,7 @@ map = L.map('map', {
   center:[ 39.995149, -102.045473],
   zoom: 9
 });
-
+console.log(map)
 dir = MQ.routing.directions();
 
 dir.route({
@@ -52,10 +49,12 @@ dir.route({
   ]
 });
 
+
 map.addLayer(MQ.routing.routeLayer({
   directions: dir,
   fitBounds: true
 }));
+
 $("#starting-point").val("")
 });
 // =================================================================================================================

@@ -16,7 +16,6 @@ $(document).ready(function () {
     // ================================================================================================================
     let addresses = [];
 
-
     $("body").on("click", "#calculate-button", function (event) {
         
 
