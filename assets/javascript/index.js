@@ -39,14 +39,17 @@ $(document).ready(function () {
         };
     };
 
-    $("#clear-events").on("click",function(){
+    //clear all events button works when on the page but if you leave page and come back, it will not clear until page refresh
+    $("body").on("click", "#clear-events", function(){
+
+        console.log("clear!!!")
         localStorage.clear();
-        $("event-result-divs").hide();
+        $(".chosen-card").empty();
     });
 
 
     $("#search-event").on("click", function (event) {
-
+        event.preventDefault();
         let resultsArray=[];
         var what = "";
         var where = "";
@@ -58,7 +61,7 @@ $(document).ready(function () {
         var eventAddress = "";
 
         $("#event-result-divs").empty();
-        event.preventDefault();
+       
         
     
         console.log($("#when-input").val().trim());
@@ -145,7 +148,7 @@ $(document).ready(function () {
                     console.log(chosenEventsArray);
                     console.log(JSON.parse(localStorage.getItem(chosenEventsArray)));
 
-                    $("#events-chosen-divs").append("<div class='card'>"
+                    $("#events-chosen-divs").append("<div class='card chosen-card'>"
                     +"<div class='card-header'>"
                     +"<h5>"+resultsArray[i].title+"</h5></div>"
                     +"<div class='card-body'>"
