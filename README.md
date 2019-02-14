@@ -1,17 +1,17 @@
-#Trippin
+# Trippin
 
-##Project 1
+## Project 1
 ***
-##Description
+## Description
 
 A website that assists users in planning a roadtrip around events (Comedy shows, concerts, etc.) in different cities, and then providing a map with directions for the upcoming roadtrip.
 
-##New Technologies
+## New Technologies
 * Leaflet - JavaScript library needed for the MapQuest API to have any functionality. 
 * bootstrap.build - Website that provides live previews as you customize Bootstrap's theming and CSS. Has the ability to customize any Bootstrap component, from Jumbotrons to forms.
 
-##Code Snippet
-###selectedEvents.js, lines 3 to 10
+## Code Snippet
+### selectedEvents.js, lines 3 to 10
         const chosenDisplay=JSON.parse(localStorage.getItem("chosenEventsArray"));
         var startingPoint;
     
@@ -28,7 +28,7 @@ Pulls the object as a string out of local storage and converts it into JSON. Thi
 
 * MapQuest
 
-##Other Info
+## Other Info
 
 * CORS is needed for the Eventful API. MapQuest doesn't need it, but is not affected by it.
 
