@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trippin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- calendar dropdown style -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" /> -->
@@ -19,7 +19,7 @@
 <body>
 
     <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="index.html">Trippin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,30 +114,19 @@
                         </div>
                     </div>
                     <div class="col-sm-3 my-1">
-                        <div id ="error"></div>
-                        <label class="sr-only" for="inlineFormInputGroupUsername" id="error">Date</label>
+                        <label class="sr-only" for="inlineFormInputGroupUsername">Date</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Dates:</div>
                             </div>
-
-                            <input type="text" class="form-control" name="dates" class="form-control pull-right" id="when-input">
-                        </div>
-                    </div>
-                    <div class="col-auto my-1">
-
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search-event">Search</button>
-
-                                            <button class="btn btn-success my-2 my-sm-0" type="submit" id="search-event">Search</button>
-
                             <input type="text" class="form-control" name="dates" class="form-control pull-right"
                                 id="when-input">
+                                <div id = "error"></div>
                         </div>
                     </div>
                     <div class="col-auto my-1">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+                        <button class="btn btn-primary my-2 my-sm-0" type="submit"
                             id="search-event">Search</button>
-
                     </div>
 
 
@@ -157,15 +146,8 @@
                 <h2>Search Results</h2>
                 <div id="event-result-divs">
                     <div id="empty-events">
-
-                    <p>Please enter search criteria to find events. </p>
-
-                </div>
-                    
-
                         <p>Please enter search criteria to find events. </p>
                     </div>
-
 
                 </div>
             </div>
@@ -185,32 +167,18 @@
         </div>
     </div>
 
-    <!-- Script Tags -->
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-
+    <!-- Script Tags -->    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-
-    <script src="assets/javascript/main.js"></script>
-    <script src="assets/javascript/test.js"></script>
-    <script src="assets/javascript/test2.js"></script>
-    <script src="assets/tests/test2.js"></script>
-
-
-    <script src="assets/javascript/index.js"></script>
-   
-
-    <script src= "assets/javascript/index.js"></script>
 
     <script src="assets/javascript/index.js"></script>
 </body>

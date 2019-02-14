@@ -4,7 +4,7 @@
         <head>
                 <meta charset="utf-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                <title>Trippin</title>
+                <title>Trippin | Directions</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
                     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -12,11 +12,12 @@
                 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
                 <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+                <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.css">
         </head>
 
 <body>
     <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="index.html">Trippin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,24 +33,13 @@
                     <a class="nav-link" href="selectedEvents.html">Trips</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search Events" aria-label="Search">
-                <input class="form-control mr-sm-2" type="search" placeholder="Location: City, State"
-                    aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+
         </div>
     </nav>
     <!-- Main content -->
     <div class="container">
         <div class="row">
-            <div class="col-md-4" id="selected-events">
-                <h2>Selected Events</h2>
-                <div id="events-chosen-divs">
-                    <p>You have no selected events. </p>
-                </div>
-            </div>
-
+            <div class="col-md-2"></div>
             <div class="col-md-8" id="map-directions">
                 <h2>Map and Directions</h2>
                 <form>
@@ -70,6 +60,7 @@
 
                 </div>
             </div>
+            <div class="col-md-2"></div>
 
         </div>
     </div>
