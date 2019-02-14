@@ -1,11 +1,42 @@
-let chosenEventsArray=[];
-
 $(document).ready(function () {
+    let chosenDisplay=JSON.parse(localStorage.getItem("chosenEventsArray"));
+    console.log(chosenDisplay);
+    let chosenEventsArray=[];
 
-    
+    if(chosenDisplay === undefined){
+        console.log('undefined chosenDisplay')
+    }
 
-
-
+    else{
+        console.log('else')
+        for(let j =0; j<chosenDisplay.length; j++){
+            chosenEventsArray.push(chosenDisplay[j]);
+            let SelectedEventDescription0="";
+            if(chosenDisplay[j].description){
+                SelectedEventDescription0=chosenDisplay[j].description;
+            }
+            else{
+                SelectedEventDescription0 = "not available. Please see event URL for further details.";
+            }
+            console.log(chosenDisplay[j]);
+            $("#events-chosen-divs").append("<div class='card'>"
+            +"<div class='card-header'>"
+            +"<h5>"+chosenDisplay[j].title+"</h5></div>"
+            +"<div class='card-body'>"
+            + "<p class='card-text'>Date: " + moment(chosenDisplay[j].start_time).format("LLLL") + "</p>"
+            + "<p class= 'card-text'>Location: " + chosenDisplay[j].venue_address + ", " + chosenDisplay[j].city_name + ", " + chosenDisplay[j].region_abbr + ", " + chosenDisplay[j].postal_code + "</p>"
+            + "<div class='row'>"
+            + "<div class='col'>"
+            + "<div class='collapse multi-collapse' id='collapse-card-2-" + j + "'>"
+            + "<p class='card-text'>Description: " + SelectedEventDescription0 + "</p>"
+            + "<p class='card-text'>Event Web Page: <a href='" + chosenDisplay[j].url + "'>Click Here</a></p>"
+            +"</div>"
+            + "<a href='#collapse-card-2-" + j + "' data-toggle='collapse' role='button' aria-expanded= 'false' aria-controls='collapse-example-card'  class='btn btn-primary'>More Details</a>"
+            +"</div>"
+            +"</div>"
+            +"</div>");
+        };
+    };
 
     $("#search-event").on("click", function (event) {
 
@@ -20,7 +51,7 @@ $(document).ready(function () {
         var eventTime = "";
         var eventAddress = "";
 
-
+        $("#event-result-divs").empty();
         event.preventDefault();
         what = $("#what-input").val().trim();
         where = $("#where-input").val().trim();
@@ -42,15 +73,6 @@ $(document).ready(function () {
             response.events.event.forEach((event, i) => {
                 
                 resultsArray.push(event);
-                
-                // console.log(i, event);
-                // console.log(event.title);
-                // console.log(event.start_time);
-                // console.log(event.venue_address);
-                // console.log(event.city_name);
-                // console.log(event.title);
-                // console.log(moment(event.start_time).format("MMM Do, YYYY hh:mm a"))
-                // for (let i = 0; i < response.events.event.length; i++) {
 
 
                 let eventDescription="";
@@ -71,7 +93,7 @@ $(document).ready(function () {
 
                     //Here we can add in more p tags for the event url, price, etc. 
                     + "<p class='card-text'>Description: " + eventDescription + "</p>"
-                    + "<p class='card-text'><a href='" + event.url + "'>" + "Event Web Page" + "</a></p>"
+                    + "<p class='card-text'>Event Web Page: <a href='" + event.url + "'>Click Here</a></p>"
                     + "</div>"
                     + "</div>"
                     + "</div>"
@@ -80,45 +102,47 @@ $(document).ready(function () {
                     + "</div>"
                     + "</div>");
 
+
+                    let SelectedEventDescription="";
+                    if(resultsArray[i].description){
+                        SelectedEventDescription=resultsArray[i].description;
+                    }
+                    else
+                        SelectedEventDescription = "not available. Please see event URL for further details.";
+
                     $("#add-event-button-"+i).on("click",function(){
+                        
+                        $("#empty-events").hide();
                         $("#card-"+i).hide();
-                        $("#selected-events").append("<div><p>Testing!</p></div>");
                         chosenEventsArray.push(resultsArray[i]);
+                        localStorage.setItem("chosenEventsArray",JSON.stringify(chosenEventsArray));
                         console.log(chosenEventsArray);
-                    
-                        $("#events-chosen-divs").append(
-                            
-                        );
+                        console.log(JSON.parse(localStorage.getItem(chosenEventsArray)));
+
+                        $("#events-chosen-divs").append("<div class='card'>"
+                        +"<div class='card-header'>"
+                        +"<h5>"+resultsArray[i].title+"</h5></div>"
+                        +"<div class='card-body'>"
+                        + "<p class='card-text'>Date: " + moment(resultsArray[i].start_time).format("LLLL") + "</p>"
+                        + "<p class= 'card-text'>Location: " + resultsArray[i].venue_address + ", " + resultsArray[i].city_name + ", " + resultsArray[i].region_abbr + ", " + resultsArray[i].postal_code + "</p>"
+                        + "<div class='row'>"
+                        + "<div class='col'>"
+                        + "<div class='collapse multi-collapse' id='collapse-card-2-" + i + "'>"
+                        + "<p class='card-text'>Description: " + SelectedEventDescription + "</p>"
+                        + "<p class='card-text'>Event Web Page: <a href='" + resultsArray[i].url + "'>Click Here</a></p>"
+                        +"</div>"
+                        + "<a href='#collapse-card-2-" + i + "' data-toggle='collapse' role='button' aria-expanded= 'false' aria-controls='collapse-example-card'  class='btn btn-primary'>More Details</a>"
+                        +"</div>"
+                        +"</div>"
+                        +"</div>");
+
                     })
-                //   $("#what-results").text(event[i].title);
-                //   $("#when-results").text(moment(event[i].start_time).format("MMM Do, YYYY hh:mm a"));
-                //   $("#where-results").text(event[i].venue_address + ", " + event[i].city_name + ", " + event[i].region_name);
-                //   $("#description-results").text(event[i].description);
-
-                // eventTitle = 
-
-
-
-                $("#add-event-button-" + i).on("click", function (event) {
-
-                    var title = 
-                    console.log($("#what-results").text(event.title));
-                    var startTime = $("#when-results").text(moment(event[i].start_time).format("MMM Do, YYYY hh:mm a"));
-                    var location = $("#where-results").text(event[i].venue_address + ", " + event[i].city_name + ", " + event[i].region_name);
-                    var description = $("#description-results").text(event[i].description);
-
-                    event.preventDefault()
-                    $("#card-" + i).hide();
-                    $("#selected-events").append("<div><p>Testing!</p></div>");
-
-
-                })
 
 
 
 
 
-                // }
+
 
 
 
