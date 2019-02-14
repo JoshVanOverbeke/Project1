@@ -1,37 +1,37 @@
 $(document).ready(function () {
     //Our starting location that is input in the form, us jquery to pull information
-    let chosenDisplay=JSON.parse(localStorage.getItem("chosenEventsArray"));
-    console.log(chosenDisplay);
+    const chosenDisplay=JSON.parse(localStorage.getItem("chosenEventsArray"));
     var startingPoint;
-    //push seleceted events into array and sort them
 
-
-    // this sort function will sort the array by date, run after all the events are pushed to the array
+    // this sorts the array by date, run after all the events are pushed to the array
     chosenDisplay.sort(function(a, b){
       var dateA=new Date(a.start_time), dateB=new Date(b.start_time)
       return dateA-dateB //sort by date ascending
     })
-    console.log(chosenDisplay)
+    console.log('sorted');
+    console.log(chosenDisplay);
+
     // ================================================================================================================
     // mapquest & leaflet logic for generating a map.
     // ================================================================================================================
+    let addresses = [];
 
-    function fillLocations() {
-        for (let i in chosenDisplay) {
-            chosenDisplay[i] + ", ";
-        }
-    }
 
     $("#calculate-button").on("click", function (event) {
         event.preventDefault();
 
-        startingPoint = $("#starting-point").val().trim()
-        console.log(startingPoint)
-
+        startingPoint = $("#starting-point").val().trim();
+        console.log(startingPoint);
+        //push starting point to array first
+        addresses.push(startingPoint);
+        //push each address into the array
+        for (let j in chosenDisplay) {
+            addresses.push(chosenDisplay[j].venue_address + ", " + chosenDisplay[j].city_name + ", " + chosenDisplay[j].region_abbr + ", " + chosenDisplay[j].postal_code)
+        }
 
 
         //clears current map
-        $("#map").empty();
+        // $("#map").empty();
 
         //initialize variables for mapquest/leaflet
         var map,
@@ -44,15 +44,27 @@ $(document).ready(function () {
             zoom: 9
         });
 
-        dir = MQ.routing.directions();
+        dir = MQ.routing.directions()
+        .on('success', function(data) {
+            var legs = data.route.legs,
+                html = '',
+                maneuvers,
+                i;
+    
+            if (legs && legs.length) {
+                maneuvers = legs[0].maneuvers;
+    
+                for (i=0; i < maneuvers.length; i++) {
+                    html += (i+1) + '. ';
+                    html += maneuvers[i].narrative + '';
+                }
+    
+                L.DomUtil.get('route-narrative').innerHTML = html;
+            }
+        });
 
         dir.route({
-            locations: [
-                startingPoint,
-                'marshall mn'
-                // fillLocations()
-
-            ]
+            locations: addresses
         });
 
         map.addLayer(MQ.routing.routeLayer({
