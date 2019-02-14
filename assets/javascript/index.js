@@ -90,7 +90,7 @@ $(document).ready(function () {
             category = $("#category-input").val();
 
  
-            var queryURL = "http://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=" + what + "&l=" + where + "&within=25&units=miles&sort_order=popularity&t=" + when;
+            var queryURL = "https://api.eventful.com/json/events/search?app_key=jwB57nfLZLPxnQvv&category=" + what + "&l=" + where + "&within=25&units=miles&sort_order=popularity&t=" + when;
 
             console.log("hopefully empty array", resultsArray);
       $.ajax({
