@@ -2,6 +2,9 @@
 
 ## Project 1
 ***
+
+https://project-trippin.herokuapp.com/index.html
+
 ## Description
 
 A website that assists users in planning a roadtrip around events (Comedy shows, concerts, etc.) in different cities, and then providing a map with directions for the upcoming roadtrip.
